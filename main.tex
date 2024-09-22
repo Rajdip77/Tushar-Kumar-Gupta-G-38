@@ -1,0 +1,266 @@
+\documentclass[a4paper,15pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{tocbibind} % To include "Table of Contents" in the index
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Lab Notebook - Team 38}
+\fancyhead[R]{\thepage}
+
+\title{\textbf{Lab Notebook}}
+\author{\textbf{Team 38}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{center}
+    \Large\textbf{Maulana Abul Kalam Azad University of Technology}\\
+    \vspace{0.2cm}
+    \large Software Tools and Techniques - Lab Notebook
+\end{center}
+
+\vspace{1cm}
+
+\section*{Assignment Details}
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Assignment:} Create a Git Repository Containing a Lab Notebook in LaTeX Format
+    \item \textbf{Subject:} Software Tools and Techniques
+    \item \textbf{Team No.:} 38
+    \item \textbf{GitHub Repo Link:} \url{https://github.com/tushar02042001/Tushar-Kumar-Gupta-G-38}
+\end{itemize}
+
+\vspace{1cm}
+
+\section*{Team Members}
+\begin{itemize}[leftmargin=1.5cm]
+    \item \textbf{Member 1 (Lead):} 
+    \begin{itemize}[leftmargin=1.5cm]
+        \item \textbf{Name: Tushar Kumar Gupta} 
+        \item \textbf{Roll No: 30001223059}
+        \item \textbf{Department: BCA} 
+\end{itemize}
+
+    \item \textbf{Member 2:} 
+    \begin{itemize}[leftmargin=1.5cm]
+        \item \textbf{Name: Aditya Kesharwani } 
+        \item \textbf{Roll No: 30001223028 } 
+        \item \textbf{Department: BCA } 
+    \end{itemize}
+
+    \item \textbf{Member 3:} 
+    \begin{itemize}[leftmargin=1.5cm]
+        \item \textbf{Name: Rajdip Majumder} 
+        \item \textbf{Roll No.: 30085323007} 
+        \item \textbf{Department: BSC IT Cyber Security} 
+    \end{itemize}
+
+    \item \textbf{Member 4:} 
+    \begin{itemize}[leftmargin=1.5cm]
+        \item \textbf{Name: Akash Halder} 
+        \item \textbf{Roll No.: 30085323015 } 
+        \item \textbf{Department: BSC IT Cyber Security} 
+    \end{itemize}
+
+    \item \textbf{Member 5:} 
+    \begin{itemize}[leftmargin=1.5cm]
+        \item \textbf{Name: Runal Saha} 
+        \item \textbf{Roll No.: 30085323017} 
+        \item \textbf{Department: BSC IT Cyber Security}
+\end{itemize}
+
+\vspace{1cm}
+
+\section*{Table of Contents}
+\tableofcontents
+
+\vspace{1cm}
+
+\newpage
+
+% Section for each lab entry
+\section{Lab 1: Calculator Program using C}
+
+\subsection{Objective}
+The objective of this lab is to develop a basic calculator program using the C programming language. The calculator will perform simple arithmetic operations like addition, subtraction, multiplication, and division based on user input.
+
+\subsection{Program Overview}
+The calculator program is designed to:
+\begin{itemize}
+    \item Accept two numbers from the user.
+    \item Prompt the user to select an arithmetic operation (Addition, Subtraction, Multiplication, Division).
+    \item Perform the selected operation.
+    \item Display the result of the operation to the user.
+\end{itemize}
+
+The program includes error handling to manage division by zero and other invalid inputs.
+
+\subsection{Code Implementation}
+The following is the C code for the calculator program:
+
+\begin{verbatim}
+#include <stdio.h>
+
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Enter an operator (+, -, *, /): ");
+    scanf("%c", &operator);
+
+    printf("Enter two operands: ");
+    scanf("%lf %lf", &num1, &num2);
+
+    switch(operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0)
+                result = num1 / num2;
+            else {
+                printf("Error! Division by zero.\n");
+                return -1;
+            }
+            break;
+        default:
+            printf("Error! Operator is not correct\n");
+            return -1;
+    }
+
+    printf("Result: %.2lf\n", result);
+    return 0;
+}
+\end{verbatim}
+
+\subsection{Compiling and Running the Program}
+To compile and run the calculator program:
+\begin{enumerate}
+    \item Open a terminal or command prompt.
+    \item Navigate to the directory where the C file is located.
+    \item Compile the program using a C compiler (e.g., GCC):
+    \begin{verbatim}
+    gcc calculator.c -o calculator
+    \end{verbatim}
+    \item Run the compiled program:
+    \begin{verbatim}
+    ./calculator
+    \end{verbatim}
+\end{enumerate}
+
+\subsection{Adding the Calculator Program to GitHub Repository}
+To add this calculator program to a GitHub repository, follow these steps:
+
+\subsubsection{Step 1: Initialize a Local Git Repository}
+\begin{enumerate}
+    \item Open the terminal and navigate to the directory where your \texttt{calculator.c} file is located.
+    \item If you haven't already, initialize a Git repository in that directory:
+    \begin{verbatim}
+    git init
+    \end{verbatim}
+    This command creates a new Git repository in the current directory.
+\end{enumerate}
+
+\subsubsection{Step 2: Add the File to the Repository}
+\begin{enumerate}
+    \item Add the \texttt{calculator.c} file to the staging area:
+    \begin{verbatim}
+    git add calculator.c
+    \end{verbatim}
+    This command stages the file, indicating that you want to include it in the next commit.
+\end{enumerate}
+
+\subsubsection{Step 3: Commit the Changes}
+\begin{enumerate}
+    \item Commit the file to the repository with a meaningful message:
+    \begin{verbatim}
+    git commit -m "Add calculator program in C"
+    \end{verbatim}
+\end{enumerate}
+
+\subsubsection{Step 4: Push the Changes to GitHub}
+\begin{enumerate}
+    \item Link your local repository to a remote GitHub repository:
+    \begin{verbatim}
+    git remote add origin https://github.com/yourusername/your-repo-name.git
+    \end{verbatim}
+    \item Push the changes to the GitHub repository:
+    \begin{verbatim}
+    git push -u origin master
+    \end{verbatim}
+\end{enumerate}
+
+\subsubsection{Step 5: Verify the Upload}
+\begin{enumerate}
+    \item Go to your GitHub repository URL in a web browser.
+    \item Verify that the \texttt{calculator.c} file is listed and accessible in the repository.
+\end{enumerate}
+
+
+\section{Symbol Mind Reading Java Application}
+
+\subsection{Description}
+This Java AWT application is a simple graphical program that simulates a mind-reading trick. The user is prompted to think of any two-digit number, reverse the digits, and find the difference between the original and reversed numbers. The user then finds the resulting number in a grid of symbols, each labeled with a number from 0 to 98.
+
+The twist of the program is that all numbers divisible by 9 share the same symbol, which is randomly generated each time the program runs. This symbol is eventually revealed as the "mind-read" symbol when the user clicks the \texttt{Submit} button.
+
+\subsection{Features}
+\begin{itemize}
+    \item \textbf{Grid of Symbols:} The main window displays a grid of 99 symbols, each paired with a number from 0 to 98.
+    \item \textbf{Random Special Symbol:} A random symbol is assigned to all positions in the grid that are divisible by 9.
+    \item \textbf{Instructional Message:} The application provides a brief message at the top of the window that guides the user through the mental trick.
+    \item \textbf{Submit Button:} Once the user is ready, they click the \texttt{Submit} button to reveal the special symbol in a refreshed window.
+\end{itemize}
+
+\subsection{How It Works}
+\begin{enumerate}
+    \item The user is instructed to think of a two-digit number, reverse its digits, and subtract the smaller number from the larger number.
+    \item The user then finds the result in the grid of symbols and memorizes the corresponding symbol.
+    \item When the user clicks the \texttt{Submit} button, the application clears the grid and displays the special symbol associated with all multiples of 9, "reading the user's mind."
+\end{enumerate}
+
+\subsection{How to Run}
+To run the program:
+\begin{enumerate}
+    \item Compile the Java file using \texttt{javac SymbolApp.java}.
+    \item Run the compiled class using \texttt{java SymbolApp}.
+    \item The application window will appear, and the user can follow the on-screen instructions.
+\end{enumerate}
+
+\subsection{Customization}
+\begin{itemize}
+    \item The special symbol is generated randomly at the start of the application. You can modify the range of ASCII characters used for generating the symbol in the code if desired.
+    \item The grid layout and other UI elements are customizable through the \texttt{GridLayout} and other layout managers used in the AWT framework.
+\end{itemize}
+
+\subsubsection{Button Customization}
+The button has been customized as follows:
+
+\begin{verbatim}
+// Original Button Setup
+submitButton = new Button("Chin Tapak Dum Dum");
+submitButton.setPreferredSize(new Dimension(250, 60)); // Make the button larger
+submitButton.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 20)); // Change font style
+submitButton.setBackground(Color.RED); // Set background color
+submitButton.setForeground(Color.WHITE); // Set text color
+submitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Change cursor when hovering
+\end{verbatim}
+
+These modifications include changing the button's label to \texttt{"Chin Tapak Dum Dum"}, resizing the button, adjusting the font style, and altering the button's color scheme to enhance its appearance and usability.
+
+ \end{itemize}
+
+ 
+\end{document}
